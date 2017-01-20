@@ -1,0 +1,2 @@
+class ProblemCategoriesController < ApplicationController
+end

@@ -1,0 +1,2 @@
+class ProblemPostsController < ApplicationController
+end
