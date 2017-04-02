@@ -1,0 +1,7 @@
+<% @categories.each do |c| %>
+<br>
+<%= link_to c.name_category , new_problem_category_problem_post_path(c.id)
+  %>
+
+<br/>
+<% end %>

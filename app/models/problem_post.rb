@@ -1,4 +1,3 @@
 class ProblemPost < ActiveRecord::Base
-	has_many :post_categories
-	has many :problem_categories , :through => :post_categories
+belongs_to :category , class_name: "ProblemCategory", foreign_key: "category_id" 
 end
