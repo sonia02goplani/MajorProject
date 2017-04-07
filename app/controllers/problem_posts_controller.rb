@@ -7,20 +7,19 @@ end
 def index
 	@post = ProblemPost.all
 end	
-
 def new
-	@post=ProblemPost.new
-	@categories=ProblemCategory.all.map{ |c| 
+	 @categories = ProblemCategory.find(params[:problem_category_id])
+	 @post=ProblemCategory.problem_posts.build
+
+    @categories=ProblemCategory.all.map{ |c| 
 		[c.name_category,c.id]
 	}
-	
 end
-
-
 def create 
 
-   @post = ProblemPost.new(post_params) 
-   @post.category_id = params[:problem_category_id] 
+   @categories = ProblemCategory.find(params[:category_id])
+   @post=ProblemCategory.posts.build(post_param)
+   @post.category_id = params[:category_id] 
   
    respond_to do |format|
      
