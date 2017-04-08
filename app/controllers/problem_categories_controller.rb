@@ -1,5 +1,5 @@
 class ProblemCategoriesController < ApplicationController
-layout "problem_category" , only: [:home, :index]
+# layout "problem_category" , only: [:home, :index]
 def home
 	
 	end
