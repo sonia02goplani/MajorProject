@@ -9,18 +9,18 @@ def index
 end	
 
 def new
-	@post=ProblemPost.new
-	@categories=ProblemCategory.all.map{ |c| 
-		[c.name_category,c.id]
-	}
+  @category=ProblemCategory.find(params[:problem_category_id])
+  @post=ProblemPost.new
+    
 	
 end
 
 
 def create 
 
-   @post = ProblemPost.new(post_params) 
-   @post.category_id = params[:problem_category_id] 
+   @categories = ProblemCategory.find(params[:category_id])
+   @post=ProblemCategory.new(post_param)
+   @post.category_id = params[:category_id] 
   
    respond_to do |format|
      
@@ -32,7 +32,7 @@ def create
         format.json { render json: @post.errors, status: :unprocessable_entity }
       end
     end
-  end
+end
 private
 def post_params
 	params.require(:post).permit(:title,:category_name,:category_id,:content ,:name)
