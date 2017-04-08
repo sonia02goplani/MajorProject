@@ -2,7 +2,11 @@ Rails.application.routes.draw do
    resources :problem_categories do
   resources :problem_posts 
 end
+<<<<<<< HEAD
 get '/' => 'problem_categories#home'
+=======
+get '/' => 'problem_posts#index'
+>>>>>>> changes/changes
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

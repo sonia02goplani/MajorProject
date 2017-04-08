@@ -7,19 +7,29 @@ end
 def index
 	@post = ProblemPost.all
 end	
-
 def new
+<<<<<<< HEAD
   @category=ProblemCategory.find(params[:problem_category_id])
   @post=ProblemPost.new
     
 	
+=======
+	 @categories = ProblemCategory.find(params[:problem_category_id])
+	 @post=ProblemCategory.problem_posts.build
+
+    @categories=ProblemCategory.all.map{ |c| 
+		[c.name_category,c.id]
+	}
+>>>>>>> changes/changes
 end
-
-
 def create 
 
    @categories = ProblemCategory.find(params[:category_id])
+<<<<<<< HEAD
    @post=ProblemCategory.new(post_param)
+=======
+   @post=ProblemCategory.posts.build(post_param)
+>>>>>>> changes/changes
    @post.category_id = params[:category_id] 
   
    respond_to do |format|
