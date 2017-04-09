@@ -1,6 +1,42 @@
-<% @post.each do |y| %>
-<%=y.title%>
-<%=y.category_name%>
-<%=y.content%>
-<%=y.name%>
-<%end%>
+<!-- Page Header -->
+    <!-- Set your background image for this header on the line below. -->
+<header class="intro-header" style="background-image: url('/assets/problempost/post.jpg')">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    <div class="site-heading">
+                        <h1></h1>
+                        <hr class="small">
+                        <span class="subheading"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-preview">
+                    <a href="post.html">
+                        <h2 class="post-title">
+                            <%= @post.try(:title) %>
+                        </h2>
+                        
+                    </a>
+                    <p class="post-meta">Posted by <a href="#"><%=@post.try(:name)%></a>  <br>on <%= @post.created_at.strftime("%d/%m/%Y %I:%M %p") %></p>
+                </div>
+
+                <article>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    <p><%= @post.try(:content) %></p>
+                </div>
+            </div>
+        </div>
+    </article>
+                <hr>
+
+  

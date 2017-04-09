@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
    resources :problem_categories do
-  resources :problem_posts 
+  resources :problem_posts ,only: [:new ,:create]
 end
-
+ resources :problem_posts ,only: [:show,:edit,:update ,:destroy]
 get '/' => 'problem_categories#home'
 
   # The priority is based upon order of creation: first created -> highest priority.
