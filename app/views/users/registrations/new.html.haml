@@ -8,7 +8,7 @@
     %label{for: "user_roles__Volunteer"} Volunteer
     = radio_button_tag "user[roles][]", User::ROLES[1]
     %label{for: "user_roles__Organization"} Organization
-    .organization_fields
+    .organization_fields{style: 'display: none;'}
       .field
         = f.label :organization_name
         %br/
@@ -16,16 +16,16 @@
       .field
         = f.label :head_name
         %br/
-        = text_field_tag 'head_name', nil, :placeholder => "Email", class: 'form-control'
+        = text_field_tag 'head_name', nil, :placeholder => "Head Name", class: 'form-control'
     .volunteer_fields
       .field
         = f.label :first_name
         %br/
-        = f.text_field :first_name, autofocus: true, :placeholder => "Email", class: 'form-control'
+        = f.text_field :first_name, autofocus: true, :placeholder => "First Name", class: 'form-control'
       .field
         = f.label :last_name
         %br/
-        = f.text_field :last_name, :placeholder => "Email", class: 'form-control'
+        = f.text_field :last_name, :placeholder => "Last Name", class: 'form-control'
     .field
       = f.label :email
       %br/
@@ -45,24 +45,24 @@
     .field
       = f.label :phone_no
       %br/
-      = f.text_field :phone_no, :placeholder => "Email", class: 'form-control'
-    .organization_fields
+      = f.text_field :phone_no, :placeholder => "Phone no.", class: 'form-control'
+    .organization_fields{style: 'display: none;'}
       .field
         = f.label :city
         %br/
-        = text_field_tag :city, nil, :placeholder => "Email", class: 'form-control'
+        = text_field_tag :city, nil, :placeholder => "City", class: 'form-control'
       .field
         = f.label :state
         %br/
-        = text_field_tag :state, nil, :placeholder => "Email", class: 'form-control'
+        = text_field_tag :state, nil, :placeholder => "State", class: 'form-control'
       .field
         = f.label :country
         %br/
-        = text_field_tag :country, nil, :placeholder => "Email", class: 'form-control'
+        = text_field_tag :country, nil, :placeholder => "Country", class: 'form-control'
       .field
         = f.label :pincode
         %br/
-        = text_field_tag :pin_code, nil, :placeholder => "Email", class: 'form-control'
+        = text_field_tag :pin_code, nil, :placeholder => "Pincode", class: 'form-control'
     .actions
       = f.submit "Sign up", class: "btn btn-lg btn-primary btn-block"
   = render "users/shared/links"
