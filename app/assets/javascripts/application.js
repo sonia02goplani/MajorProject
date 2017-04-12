@@ -13,9 +13,4 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
-//= require bootstrap.min
-//= require clean-blog.min
-//= require contact_me
-//= require jquery-ui
-//= require signup
-//= require jqBootstrapValidation
+//= require_tree .

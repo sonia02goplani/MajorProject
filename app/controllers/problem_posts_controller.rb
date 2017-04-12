@@ -1,5 +1,5 @@
 class ProblemPostsController < ApplicationController
-# layout "problem_post" , only: [:new,:index,:show]
+layout "problem_post" , only: [:new,:index,:show]
 
 def show
 @post = ProblemPost.find(params[:id])

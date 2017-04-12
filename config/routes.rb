@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users, :controllers => { :registrations => "users/registrations" }
-  root 'home#index'
+  root 'problem_categories#home'
 
   resources :problem_categories do
     resources :problem_posts, only: [:new ,:create]
@@ -8,9 +8,4 @@ Rails.application.routes.draw do
 
   resources :problem_posts ,only: [:show,:edit,:update ,:destroy]
 
-  resources :home, only: [] do
-    get :about_us, on: :collection
-    get :sample_post, on: :collection
-    get :contact_us, on: :collection
-  end
 end
