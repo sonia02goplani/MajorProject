@@ -1,5 +1,6 @@
 
-//= require problemcategory/bootstrap
-//= require problemcategory/bootstrap.min
-//= require problemcategory/jquery
+//= require problemcategory/jquery.js
+//= require problemcategory/bootstrap.js
+//= require problemcategory/bootstrap.min.js
+
 
