@@ -49,3 +49,15 @@ label {
   border-top-left-radius: 0;
   border-top-right-radius: 0;
 }
+
+span.select2-container--default {
+  width: 300px !important;
+}
+
+span.select2-selection__arrow, span.select2-selection--single{
+  height: 45px !important;
+}
+
+span.select2-selection__rendered{
+  line-height: 45px !important;
+}

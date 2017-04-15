@@ -20,4 +20,5 @@ Rails.application.routes.draw do
     end
   end
 
+  get 'get_state_for_country/:country', to: 'home#get_state_for_country'
 end
