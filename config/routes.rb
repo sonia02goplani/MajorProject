@@ -8,4 +8,16 @@ Rails.application.routes.draw do
 
   resources :problem_posts ,only: [:show,:edit,:update ,:destroy]
 
+  namespace :organization, path: '' do
+    resources :organizations, only: [] do
+      get :dashboard, on: :collection
+    end
+  end
+
+  namespace :volunteer, path: '' do
+    resources :volunteers, only: [] do
+      get :dashboard, on: :collection
+    end
+  end
+
 end
