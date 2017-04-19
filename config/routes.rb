@@ -6,7 +6,7 @@ Rails.application.routes.draw do
     resources :problem_posts, only: [:new ,:create]
   end
 
-  resources :problem_posts ,only: [:show,:edit,:update ,:destroy]
+  resources :problem_posts ,only: [:index ,:show,:edit,:update ,:destroy]
 
   namespace :organization, path: '' do
     resources :organizations, only: [] do
@@ -19,6 +19,7 @@ Rails.application.routes.draw do
       get :dashboard, on: :collection
     end
   end
+  
 
   get 'get_state_for_country/:country', to: 'home#get_state_for_country'
 end

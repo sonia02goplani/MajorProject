@@ -1,12 +1,16 @@
 class ProblemPostsController < ApplicationController
 layout "problem_post" , only: [:new,:index,:show]
 
+
 def show
 @post = ProblemPost.find(params[:id])
+
+    
 end
 def index
-	@post = ProblemPost.all
-end	
+  @post = ProblemPost.page(params[:page]).per(10)
+  @categories= ProblemCategory.all
+end 
 def new
 
   @category=ProblemCategory.find(params[:problem_category_id])
@@ -32,9 +36,10 @@ def create
       end
     end
 end
+
 private
 def post_params
-	params.require(:problem_post).permit(:title,:category_name,:category_id,:content ,:name)
+  params.require(:problem_post).permit(:title,:category_name,:category_id,:content ,:name)
 end
 end
 

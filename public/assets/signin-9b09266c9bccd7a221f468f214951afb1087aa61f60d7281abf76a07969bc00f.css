@@ -13,27 +13,15 @@ label {
 
   }
 
-
 .form-signin {
   max-width: 330px;
   padding: 15px;
   margin: 0 auto;
 }
 .form-signin .form-signin-heading,
-.form-signin 
-.radio-label {
-   display: inline-block;
-    vertical-align: top;
-    margin-right: 3%;
-}
-.radio-input {
-   display: inline-block;
-    vertical-align: top;
-}
-.form-signin .form-signin-heading,
 .form-signin .checkbox {
   margin-bottom: 10px;
-  color: #000;
+  color: #000
 }
 .form-signin .checkbox {
   font-weight: normal;
