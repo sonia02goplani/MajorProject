@@ -1,10 +1,8 @@
 class ProblemCategoriesController < ApplicationController
-layout "problem_category" , only: [:home]
 layout "problem_post" , only: [:show]
 
-def home
-	@categories=ProblemCategory.all
-end
+
+
 	def index
 		@categories=ProblemCategory.all
 	end

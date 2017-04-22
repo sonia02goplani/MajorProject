@@ -3,10 +3,13 @@ Rails.application.routes.draw do
   devise_scope :user do  
    get '/users/sign_out' => 'devise/sessions#destroy'     
 end
-  root 'problem_categories#home'
+  root 'home#home'
 
   resources :problem_categories do
     resources :problem_posts, only: [:new ,:create]
+  end
+  resources :problem_posts do
+    resources :problem_comments, only: [:new ,:create]
   end
 
   resources :problem_posts ,only: [:index ,:show,:edit,:update ,:destroy]

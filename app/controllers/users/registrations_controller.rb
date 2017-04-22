@@ -22,6 +22,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   end
 
   def after_sign_up_path_for(resource)
+    @user=current user
     return (resource.volunteer? ? dashboard_volunteer_volunteers_path : dashboard_organization_organizations_path)
   end
   def after_sign_out_path_for(resource)
