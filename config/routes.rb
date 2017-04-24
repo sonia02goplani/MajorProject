@@ -8,9 +8,11 @@ end
   resources :problem_categories do
     resources :problem_posts, only: [:new ,:create]
   end
-  resources :problem_posts do
-    resources :problem_comments, only: [:new ,:create]
+  resources :problem_posts , only: [] do
+    resources :comments, only: [:new ,:create,:destroy]
   end
+  get '/problem_posts/:problem_post_id/comments/:id' =>  'comments#destroy'
+
 
   resources :problem_posts ,only: [:index ,:show,:edit,:update ,:destroy]
 

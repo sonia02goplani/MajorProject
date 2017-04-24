@@ -4,7 +4,8 @@ layout "problem_post" , only: [:new,:index,:show]
 
 def show
 @post = ProblemPost.find(params[:id])
-
+@comment = Comment.new( :post => @post )
+@comments = @post.comments
     
 end
 def index
@@ -36,7 +37,9 @@ def create
       end
     end
 end
-
+def show_comment_form
+   render :partial=>"problem_posts/comment"
+end
 private
 def post_params
   params.require(:problem_post).permit(:title,:category_name,:category_id,:content ,:name)
