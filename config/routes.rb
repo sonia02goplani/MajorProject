@@ -20,7 +20,10 @@ end
     resources :organizations, only: [] do
       get :dashboard, on: :collection
     end
+    resources :volunteers, only: [:index]
   end
+
+  resources :volunteers, only: [:new, :create]
 
   namespace :volunteer, path: '' do
     resources :volunteers, only: [] do

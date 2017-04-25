@@ -5,7 +5,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
   has_one :organization, dependent: :destroy, autosave: true
 
-  ROLES = %w(Volunteer Organization Admin)
+  ROLES = %w(Samaritan Organization Admin)
 
   def roles=(roles)
     self.roles_mask = self.class.get_roles_mask(roles)
@@ -21,8 +21,8 @@ class User < ActiveRecord::Base
     roles.include?(role)
   end
 
-  def volunteer?
-    has_role?('Volunteer')
+  def samaritan?
+    has_role?('Samaritan')
   end
 
   def organization?

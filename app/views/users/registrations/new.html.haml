@@ -9,7 +9,7 @@
       .col-md-2
         = radio_button_tag "user[roles][]", User::ROLES[0], :checked => "true"
       .col-md-10
-        %label{for: "user_roles__Volunteer"} Volunteer
+        %label{for: "user_roles__Samaritan"} Samaritan
 
       %br
       .col-md-2
@@ -28,7 +28,7 @@
         %br/
         = text_field_tag 'head_name', nil, :placeholder => "Head Name", class: 'form-control'
         
-    .volunteer_fields 
+    .samaritan_fields
       .field
         = f.label :first_name
         %br/

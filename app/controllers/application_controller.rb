@@ -4,6 +4,6 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   def after_sign_in_path_for(resource)
-    return (resource.volunteer? ? dashboard_volunteer_volunteers_path : dashboard_organization_organizations_path)
+    return (resource.samaritan? ? root_path : dashboard_organization_organizations_path)
   end
 end
