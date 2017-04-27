@@ -30,7 +30,7 @@ class: "image") %>
     
                     <p>
                     <h3 style="color:#000066">
-                    What happened in Event
+                    Project Description:
                     </h3>
                     <hr class="small">
                     <%= raw(@event.try(:description)) %>
@@ -49,7 +49,7 @@ class: "image") %>
     
                     <p>
                     <h3 style="color:#000066">
-                    Who participated in this Event
+                    Participants of Project:
                     </h3>
                     <hr class="small">
                     <%= raw(@event.try(:participants)) %>
@@ -86,9 +86,9 @@ class: "image") %>
                 <div class="col-lg-12 text-center">
                 
         <span style="color:#A52A2A">
-        Event start:     <%= @event.try(:event_start)%><br>
-        Event end:       <%= @event.try(:event_end)%><br>
-        Event Location:  <%=@event.try(:event_loc)%>
+        Project started at:    <%= @event.event_start.strftime("%I:%M")%><br>
+        Project ended at:      <%= @event.event_end.strftime("%I:%M")%><br>
+        Project Location:  <%=@event.try(:event_loc)%>
         </span>
                 </div>
             </div>
