@@ -4,5 +4,5 @@
 //= require problem_post/contact_me
 //= require problem_post/jqBootstrapValidation
 //= require problem_post/jquery.min
-
+//= require ckeditor/init
 

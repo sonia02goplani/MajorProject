@@ -30,6 +30,14 @@ body {
 	font-family: 'Roboto', Arial, Helvetica, Sans-serif, Verdana;
 	background: #dee1e3;
 }
+.image{
+	padding: 50px;
+    border: 1px solid #000;
+    border-radius: 1px;
+    display: block;
+    margin: auto;
+    width: auto;
+}
 
 /** ====================
  * Lista de Comentarios
