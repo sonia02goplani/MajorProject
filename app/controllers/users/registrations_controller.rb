@@ -17,12 +17,14 @@ class Users::RegistrationsController < Devise::RegistrationsController
                                                     state: params[:state],
                                                     country: params[:country],
                                                     pin_code: params[:pin_code])
+
     end
     self.resource
   end
 
   def after_sign_up_path_for(resource)
-    return (resource.samaritan? ? root_path : dashboard_organization_organizations_path)
+     return (resource.samaritan? ? root_path : dashboard_organization_organizations_path)
+  
   end
   def after_sign_out_path_for(resource)
     root_path

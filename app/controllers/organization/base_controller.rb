@@ -1,6 +1,7 @@
 class Organization::BaseController < ApplicationController
   before_action :validate_organization
-  layout "after_login"
+  
+   
   protected
   def validate_organization
     unless current_user.present? && current_user.organization?
@@ -8,4 +9,5 @@ class Organization::BaseController < ApplicationController
       redirect_to root_path
     end
   end
+ 
 end

@@ -12,6 +12,8 @@ Rails.application.config.assets.precompile += %w( problem_post.css )
 Rails.application.config.assets.precompile += %w( problem_post.js )
 Rails.application.config.assets.precompile += %w( after_login.css )
 Rails.application.config.assets.precompile += %w( after_login.js )
+
+Rails.application.config.assets.precompile += %w( ckeditor/* )
 # Precompile additional assets.
 # application.js, application.css, and all non-JS/CSS in app/assets folder are already added.
 # Rails.application.config.assets.precompile += %w( search.js )

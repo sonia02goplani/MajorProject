@@ -11,10 +11,27 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170425220425) do
+ActiveRecord::Schema.define(version: 20170426051140) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "ckeditor_assets", force: :cascade do |t|
+    t.string   "data_file_name",               null: false
+    t.string   "data_content_type"
+    t.integer  "data_file_size"
+    t.string   "data_fingerprint"
+    t.integer  "assetable_id"
+    t.string   "assetable_type",    limit: 30
+    t.string   "type",              limit: 30
+    t.integer  "width"
+    t.integer  "height"
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
+  end
+
+  add_index "ckeditor_assets", ["assetable_type", "assetable_id"], name: "idx_ckeditor_assetable", using: :btree
+  add_index "ckeditor_assets", ["assetable_type", "type", "assetable_id"], name: "idx_ckeditor_assetable_type", using: :btree
 
   create_table "comments", force: :cascade do |t|
     t.integer  "post_id",    null: false
@@ -22,6 +39,25 @@ ActiveRecord::Schema.define(version: 20170425220425) do
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "event_portfolios", force: :cascade do |t|
+    t.string   "event_name",          null: false
+    t.string   "organization_name",   null: false
+    t.date     "event_date",          null: false
+    t.time     "event_start",         null: false
+    t.time     "event_end",           null: false
+    t.string   "event_loc",           null: false
+    t.string   "coordinator_name",    null: false
+    t.string   "description",         null: false
+    t.string   "participants",        null: false
+    t.string   "highlights",          null: false, array: true
+    t.string   "avatar_file_name",    null: false
+    t.string   "avatar_content_type", null: false
+    t.integer  "avatar_file_size",    null: false
+    t.datetime "avatar_updated_at",   null: false
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
   end
 
   create_table "organizations", force: :cascade do |t|

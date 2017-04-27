@@ -1,5 +1,5 @@
 class ProblemPostsController < ApplicationController
-layout "problem_post" , only: [:new,:index,:show]
+layout "problem_post" 
 
 
 def show
@@ -10,7 +10,7 @@ def show
 end
 def index
   @post = ProblemPost.page(params[:page]).per(10)
-  @categories= ProblemCategory.all
+  
 end 
 def new
 
@@ -20,9 +20,7 @@ def new
 
 end
 def create 
-
-   
-
+     @category=ProblemCategory.find(params[:problem_category_id])
    @post=ProblemPost.new(post_params)
    @post.category_id = params[:problem_category_id] 
   

@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  mount Ckeditor::Engine => '/ckeditor'
   devise_for :users, :controllers => { :registrations => "users/registrations" }
   devise_scope :user do  
    get '/users/sign_out' => 'devise/sessions#destroy'     
@@ -13,6 +14,8 @@ end
   end
   get '/problem_posts/:problem_post_id/comments/:id' =>  'comments#destroy'
 
+    resources :event_portfolios, only: [:new ,:create,:destroy,:show,:index]
+
 
   resources :problem_posts ,only: [:index ,:show,:edit,:update ,:destroy]
 
@@ -20,10 +23,11 @@ end
     resources :organizations, only: [] do
       get :dashboard, on: :collection
     end
-    resources :volunteers, only: [:index]
+       resources :volunteers, only: [:index]
   end
 
-  resources :volunteers, only: [:new, :create]
+resources :volunteers, only: [:new, :create]
+ 
 
   namespace :volunteer, path: '' do
     resources :volunteers, only: [] do

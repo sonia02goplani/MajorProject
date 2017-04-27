@@ -10,32 +10,34 @@
       </ul>
     </div>
   <% end %>
-
-  <div class="field">
-    <%= f.label :title %><br>
-    <%= f.text_field :title %>
-  </div>
+ 
+<div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
     <div class="field">
-    <%= f.label :category %><br>
-    <%= f.text_field  :category_name, :value=> @category.name_category, :readonly => true %>
-    </div>
-     <div class="field">
-    
-    <%= f.hidden_field  :category_id, :value=>@category.id%>
-    </div>
-
+        <%= f.label :title %><br>
+        <%= f.text_field :title %>
+    </div><br>
     <div class="field">
-    <%= f.label :content %><br>
-    <%= f.text_area :content %>
-  </div>
-  <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
-  </div>
+        <%= f.label :category %><br>
+        <%= f.text_field  :category_name,
+        :value=> @category.name_category, :readonly => true %>
+    </div><br>
+    <div class="field">
+         <%= f.hidden_field  :category_id, :value=>@category.id%>
+    </div>
+    <div class="field">
+         <%= f.label :content %><br>
+         <%= f.cktext_area :content %>
+    </div><br>
   
-  <div class="actions">
-    <%= f.button(type: 'submit', class: "btn btn-primary") do %>
-    <i class="icon-ok icon-white"> Save</i>
-<% end %>
+    <div class="field">
+         <%= f.label :name %><br>
+         <%= f.text_field :name %>
+    </div><br>
+  
+    <div class="actions">
+          <%= f.button(type: 'submit', class: "btn btn-primary") do %>
+          <i class="icon-ok icon-white"> Save</i>
+     <% end %>
+     </div>
   </div>
 <% end %>

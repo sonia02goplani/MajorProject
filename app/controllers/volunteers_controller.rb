@@ -1,5 +1,7 @@
 class VolunteersController < ApplicationController
-  def new
+	
+   
+	 def new
     @volunteer = Volunteer.new
   end
 
@@ -13,4 +15,5 @@ class VolunteersController < ApplicationController
   def volunteer_params
     params.require(:volunteer).permit(:first_name, :last_name, :email, :phone_no, :profession, :why_you_joining, :time_contribution, :organization_id)
   end
+
 end
