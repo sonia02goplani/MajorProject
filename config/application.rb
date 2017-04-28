@@ -21,6 +21,7 @@ module Postblog
     # config.i18n.default_locale = :de
     config.assets.paths << "#{Rails.root}/app/assets/fonts/problemcategory" 
     config.assets.precompile += %w( .svg .eot .woff .ttf ) 
+    config.assets.paths << Rails.root.join("app", "assets", "fonts" ,"after_login")
     # Do not swallow errors in after_commit/after_rollback callbacks.
     config.active_record.raise_in_transactional_callbacks = true
     config.autoload_paths += %W(#{config.root}/app/models/ckeditor) 
