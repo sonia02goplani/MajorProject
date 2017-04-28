@@ -5,6 +5,8 @@ Rails.application.routes.draw do
    get '/users/sign_out' => 'devise/sessions#destroy'     
 end
   root 'home#home'
+   get '/about' => 'home#about'
+  get '/contact' => 'home#contact'
 
   resources :problem_categories do
     resources :problem_posts, only: [:new ,:create]
