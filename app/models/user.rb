@@ -3,8 +3,9 @@ class User < ActiveRecord::Base
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
+ 
   has_one :organization, dependent: :destroy, autosave: true
-
+  has_many :events, dependent: :destroy
   ROLES = %w(Samaritan Organization Admin)
 
   def roles=(roles)

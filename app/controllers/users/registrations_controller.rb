@@ -22,10 +22,17 @@ class Users::RegistrationsController < Devise::RegistrationsController
     self.resource
   end
 
-  def after_sign_up_path_for(resource)
+   def after_sign_up_path_for(resource)
      return (resource.samaritan? ? root_path : dashboard_organization_organizations_path)
   
-  end
+    if resource.samaritan?
+      root_path
+    elsif resource.organization?
+      dashboard_organization_organizations_path
+    else
+      admin_dashboard_index_path
+    end
+   end 
   def after_sign_out_path_for(resource)
     root_path
   end

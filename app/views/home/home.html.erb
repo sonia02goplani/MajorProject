@@ -105,6 +105,34 @@
                 </div>
             </div>
         </div>
+        <div class="row">
+            <div class="box">
+                <div class="col-lg-12">
+                    <hr>
+                    <h2 class="intro-text text-center">Want to initiate your event in your city
+                        <strong>
+                         <% if current_user.present? && current_user.samaritan? %>
+                      <%= link_to 'Initiate Event', new_samaritan_event_path %>
+                      <%else%>
+                        <a href =/users/sign_up>Sign_up(as a Samaritan)</a> 
+                         <%end%>
+                        </strong><br><br>
+                        <strong>
+                         <% if current_user.present? && current_user.samaritan? %>
+                         <%= link_to 'Logout', destroy_user_session_path %>
+                             <%else%>
+                             Already a member??  <%= link_to 'Login', new_user_session_path %>
+                             <%end%>
+
+                         </strong>
+                    </h2>
+                    <hr>
+                    
+                    <p align="center">Initiate events in your city for welfare of  society and surrounding.<br>We will help you get volunteers for your event.<br>from all over city.
+                    </p>
+                </div>
+            </div>
+        </div>
         
 
 
@@ -190,11 +218,32 @@
                 <img src="/assets/problemcategory/page3.jpg">
                 <div class="carousel-caption">
                     <h3>
-                        Headline</h3>
-                    <p>
-                        Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod
-                        tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. Lorem
-                        ipsum dolor sit amet, consetetur sadipscing elitr.</p>
+                        Upcoming Events
+                    </h3>
+                    <ul class="recent-posts">
+                
+                        <% @Ievents.each do |event| %>
+                     <div class="post-preview">
+                 
+                        <h3 class="post-title">
+                         <li>  <%=link_to event.name , event_path(event.id)%> 
+
+                            <%= event.scheduled_at.strftime("%d/%m/%Y %I:%M %p")%> </li>
+                        </h3>
+                        <h4>At: <%= event.location %><br>
+                            ,  Contact: <%= event.coordinator_name%>(<%= event.coordinator_phone%>)
+                        </h4>
+                  
+                     <br>
+                     
+               </div>
+                  <%end%>
+                 <li>
+                 <%=link_to "View all", event_portfolios_path,
+                        :class =>"btn btn-primary"%> 
+              </li>
+               
+            </ul>
                 </div>
             </div>
             <!-- End Item -->
