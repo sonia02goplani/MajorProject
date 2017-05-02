@@ -30,12 +30,12 @@
 
 <body>
  <body>
-     <%=render 'layouts/header1' %>
-    
-
-        <%= yield %>
-
-     <%= render 'layouts/footer1' %>
+    <%=render 'layouts/header1' %>
+    <%= bootstrap_flash %>
+    <%= yield %>
+    <%= render 'layouts/footer1' %>
+  </body>
     </body>
-    </body>
-    </html>
+</html>
+  
+  

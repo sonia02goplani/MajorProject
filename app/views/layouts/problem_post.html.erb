@@ -29,15 +29,10 @@
 
 </head>
 
-<body>
-
-   
-   
-     <%=render 'layouts/header' %>
-    
-
-        <%= yield %>
-
-     <%= render 'layouts/footer' %>
- 
-    </html>
+  <body>
+    <%=render 'layouts/header' %>
+    <%= bootstrap_flash %>
+    <%= yield %>
+    <%= render 'layouts/footer' %>
+  </body>
+</html>

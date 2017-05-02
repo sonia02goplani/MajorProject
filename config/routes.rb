@@ -36,6 +36,17 @@ resources :volunteers, only: [:new, :create]
       get :dashboard, on: :collection
     end
   end
+  namespace :samaritan do
+    resources :events, only: [:new, :create ]
+  end
+  resources :event , only: [] do
+    resources :participants, only: [:new ,:create,:destroy]
+  end
+resources :events, only: [:show,:index ]
+
+  namespace :admin do
+    resources :dashboard, only: [:index]
+  end
   
 
   get 'get_state_for_country/:country', to: 'home#get_state_for_country'

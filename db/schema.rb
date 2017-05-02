@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170426051140) do
+ActiveRecord::Schema.define(version: 20170501162158) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -60,6 +60,22 @@ ActiveRecord::Schema.define(version: 20170426051140) do
     t.datetime "updated_at",          null: false
   end
 
+  create_table "events", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "scheduled_at"
+    t.integer  "duration"
+    t.string   "location"
+    t.string   "coordinator_name"
+    t.string   "coordinator_email"
+    t.string   "coordinator_phone"
+    t.text     "moto"
+    t.text     "who_can_participate"
+    t.string   "event_cost"
+    t.integer  "user_id"
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
+  end
+
   create_table "organizations", force: :cascade do |t|
     t.string   "name",       null: false
     t.string   "head_name",  null: false
@@ -70,6 +86,16 @@ ActiveRecord::Schema.define(version: 20170426051140) do
     t.string   "pin_code"
     t.string   "status"
     t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "participants", force: :cascade do |t|
+    t.integer  "event_id",   null: false
+    t.string   "name",       null: false
+    t.string   "phone",      null: false
+    t.string   "email"
+    t.text     "address",    null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

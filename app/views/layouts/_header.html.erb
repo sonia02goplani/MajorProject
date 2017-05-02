@@ -11,8 +11,9 @@
                     <span class="sr-only">Toggle navigation</span>
                     Menu <i class="fa fa-bars"></i>
                 </button>
-                 <% if current_user.present? %>
+                 <% if current_user.present? && current_user.organization %>
                     <a class="navbar-brand" href="/organizations/dashboard">MY Dashboard</a>
+            
                   <% else %>
                    <a class="navbar-brand" href="/">Home</a>
                   <% end %>
