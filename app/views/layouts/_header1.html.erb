@@ -23,14 +23,28 @@
                         <a href="/about">About</a>
                     </li>
                     <li>
+
                         <a href="about.html">Services</a>
+
                     </li>
                     <li>
                         <a href="/problem_posts">Blog</a>
                     </li>
                     <li>
                         <a href="/contact">Contact</a>
+
+
                     </li>
+                    <% if current_user.present? %>
+                    <li>
+                         <%= link_to 'Logout', destroy_user_session_path, method: :delete %>
+                    </li>
+                    <%else%>
+                    <li>
+                         <%= link_to 'Login', new_user_session_path %>
+
+                    </li>
+                    <%end%>
                 </ul>
             </div>
             <!-- /.navbar-collapse -->

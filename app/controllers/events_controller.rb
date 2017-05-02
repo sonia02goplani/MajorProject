@@ -5,7 +5,7 @@ layout "problem_post" , only: [:show, :index]
   end
   def show
   @Ievent = Event.find(params[:id])
-  @participant = Participant.new( :event => @Ievent )
-@participants = @Ievent.participants
+  @participant = Participant.new( :event_id => @Ievent_id )
+  @participants = @Ievent.participants
 end
 end

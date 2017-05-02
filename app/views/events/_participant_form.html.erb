@@ -3,13 +3,18 @@
 	<div class="row">
 	<!-- Contenedor Principal -->
     <div class="comments-container">
+
 		<h1>Volunteer application </h1>
+
+		<h2>volunteer applications </h2>
+
 
 		<ul id="comments-list" class="comments-list">
 			<li>
 				<div class="comment-main-level">
 				<% Participant.where(event_id: @Ievent.id).each do |y| %>
 					<!-- Avatar -->
+
 					<div class="comment-avatar"><img src="http://i9.photobucket.com/albums/a88/creaticode/avatar_1_zps8e1c80cd.jpg" alt=""></div>
 					<!-- Contenedor del Comentario -->
 					<div class="comment-box">
@@ -28,6 +33,30 @@
 					<%end%>
 
 					
+
+					
+					<!-- Contenedor del Comentario -->
+					<div class="comment-box">
+						<div class="comment-head">
+							<h6 class="comment-name by-author">"<%=y.name%></h6>
+							<span><%= y.created_at.strftime("%d/%m/%Y %I:%M %p") %> </span>
+							<i class="fa fa-pencil-square-o "></i>
+
+							
+							<i class=" fa fa-comment "></i>	
+
+						</div>
+						<% if current_user.present? && current_user.samaritan?%>
+						<%if current_user.email== @Ievent.coordinator_name %>
+						<div class="comment-content">
+							<%=y.address%><br>
+							<%=y.phone%>
+						</div>
+						<%end%>
+						<%end%>
+					</div>
+					<%end%>
+
 				</div>
 				
 			</li>
