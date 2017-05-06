@@ -7,7 +7,7 @@ def home
 	@categories=ProblemCategory.all
 	 @post = ProblemPost.page(params[:page]).per(4)
 	 @events=EventPortfolio.page(params[:page]).per(10)
-	 @Ievents=Event.all
+	 @Ievents=Event.page(params[:page]).per(4)
 
 
 end

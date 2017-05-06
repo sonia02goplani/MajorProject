@@ -37,7 +37,8 @@
       = f.label :Coordinators_email
       %br/
       %div
-        = f.text_field :coordinator_email, :placeholder => "Coordinator's Email"
+      = if current_user.present? && current_user.samaritan?
+        = f.text_field :coordinator_email, value: current_user.email, readonly: true
       %br/
       = f.label :Coordinators_phone
       %br/

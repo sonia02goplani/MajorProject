@@ -105,11 +105,8 @@
       <h2><%= pluralize(@participant.errors.count, "error") %> prohibited this post from being saved:</h2>
 
       <ul>
-<<<<<<< HEAD
+
       <% @participant.errors.full_messages.each do |message| %>
-=======
-      <% @participant.errors.full_messages.each do |attr,message| %>
->>>>>>> sub
         <li><%= message %></li>
       <% end %>
       </ul>
@@ -139,7 +136,7 @@
   <div class="actions">
     <%= f.button(type: 'Save', class: "btn btn-primary") do %>
     <i class="icon-ok icon-white"> Save</i>
-<% end %>
+<%end%>
   </div>
   </div>
 <% end %>

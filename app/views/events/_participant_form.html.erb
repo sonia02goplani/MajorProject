@@ -6,36 +6,12 @@
 
 		<h1>Volunteer application </h1>
 
-		<h2>volunteer applications </h2>
-
-
 		<ul id="comments-list" class="comments-list">
 			<li>
 				<div class="comment-main-level">
-				<% Participant.where(event_id: @Ievent.id).each do |y| %>
+		   <% Participant.where(event_id: @Ievent.id).each do |y| %>
 					<!-- Avatar -->
-
-					<div class="comment-avatar"><img src="http://i9.photobucket.com/albums/a88/creaticode/avatar_1_zps8e1c80cd.jpg" alt=""></div>
-					<!-- Contenedor del Comentario -->
-					<div class="comment-box">
-					<%=y.name%></h6>
-							<% unless current_user.present? &&current_user.samaritan? && 
-								y.id== @Ievent.id %>
-						
-						<div class="comment-content">
-							<%=y.address%><br>
-							<%= y.phone %>
-						</div>
-					
-						<%end%>
-						</div>
-					</div>
-					<%end%>
-
-					
-
-					
-					<!-- Contenedor del Comentario -->
+					 <!-- Contenedor del Comentario -->
 					<div class="comment-box">
 						<div class="comment-head">
 							<h6 class="comment-name by-author">"<%=y.name%></h6>
@@ -47,12 +23,13 @@
 
 						</div>
 						<% if current_user.present? && current_user.samaritan?%>
-						<%if current_user.email== @Ievent.coordinator_name %>
+						<% if current_user.email== @Ievent.coordinator_email %>
+							
 						<div class="comment-content">
 							<%=y.address%><br>
 							<%=y.phone%>
 						</div>
-						<%end%>
+						<% end %>
 						<%end%>
 					</div>
 					<%end%>
